@@ -1,0 +1,270 @@
+/*
+---------------------------------------------------------------
+  Note that styles you apply to the main menu items are inherited by the sub menus items too.
+  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
+  .sm-clean > li > a { ... } instead of .sm-clean a { ... }
+---------------------------------------------------------------*/
+
+
+/* Menu box
+===================*/
+
+	.sm-clean1 {
+		padding:0 10px;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		background-color:#DCFAEB;
+		
+	}
+	.sm-clean1-vertical {
+		padding:10px 0;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+	}
+	.sm-clean1 ul {
+		border:1px solid #bbb;
+		padding:5px 0;
+		background:#DCFAEB;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		
+	}
+	/* first sub level carets */
+	.sm-clean1 > li > ul:before {
+		content:'';
+		position:absolute;
+		top:-18px;
+		left:30px;
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:9px; /* tweak size of the arrow */
+		border-style:dashed dashed solid dashed;
+		border-color:transparent transparent #bbb transparent;
+		
+	}
+	.sm-clean1 > li > ul:after {
+		content:'';
+		position:absolute;
+		top:-16px;
+		left:31px;
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:8px;
+		border-style:dashed dashed solid dashed;
+		border-color:transparent transparent #fff transparent;
+		
+	}
+	/* no carets for vertical main */
+	.sm-clean-vertical > li > ul:before, .sm-clean-vertical > li > ul:after {
+		display:none;
+	}
+
+	.sm-clean1 > li {
+		text-align:center;
+		width:19%;
+		margin-left:0px;
+		margin-right:0px;
+	}
+
+/* Menu items
+===================*/
+
+	.sm-clean1 a {
+		padding:15px;
+		color:black;
+		font-size:21px;
+		line-height:17px;
+		font-family:'MedievalSharp',cursive;'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Arial,sans-serif;
+		font-weight: bold;
+		text-decoration:none;
+		
+	}
+	.sm-clean1 a:hover, .sm-clean a:focus, .sm-clean a:active,
+	.sm-clean1 a.highlighted {
+		color:#D23600;
+	}
+	.sm-clean1-vertical a:hover, .sm-clean-vertical a:focus, .sm-clean-vertical a:active,
+	.sm-clean1-vertical a.highlighted {
+		background:#fff;
+	}
+	.sm-clean1 a.has-submenu {
+		padding-right:25px;
+	}
+	.sm-clean1-vertical a,
+ 	.sm-clean1 ul a {
+		padding:10px 20px;
+	}
+	.sm-clean1-vertical a.has-submenu,
+ 	.sm-clean1 ul a.has-submenu {
+		padding-right:40px;
+	}
+	.sm-clean1 ul a {
+		font-size:16px;
+	}
+	.sm-clean1 ul a:hover, .sm-clean ul a:focus, .sm-clean ul a:active,
+	.sm-clean1 ul a.highlighted {
+		color:#D23600;
+		background:#eee;
+	}
+	/* current items - add the class manually to some item or check the "markCurrentItem" script option */
+	.sm-clean1 a.current, .sm-clean a.current:hover, .sm-clean a.current:focus, .sm-clean a.current:active {
+		color:#D23600;
+	}
+
+
+
+
+
+	.sm-clean1 span.scroll-up, .sm-clean span.scroll-down {
+		position:absolute;
+		display:none;
+		visibility:hidden;
+		overflow:hidden;
+		background:#fff;
+		height:20px;
+		/* width and position will be automatically set by the script */
+	}
+
+
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+
+/* decrease horizontal main menu items left/right padding to avoid wrapping */
+@media screen and (max-width: 850px) {
+	.sm-clean1:not(.sm-clean-vertical) > li > a {
+		padding-left:8px;
+		padding-right:8px;
+	}
+	.sm-clean1:not(.sm-clean-vertical) > li > a.has-submenu {
+		padding-right:25px;
+	}
+}
+@media screen and (max-width: 750px) {
+	.sm-clean1:not(.sm-clean-vertical) > li > a {
+		padding-left:3px;
+		padding-right:3px;
+	}
+	.sm-clean1:not(.sm-clean-vertical) > li > a.has-submenu {
+		padding-right:25px;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+
+	/* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+	ul.sm-clean1{width:auto !important;}
+	ul.sm-clean1 ul{display:none;position:static !important;top:auto !important;left:auto !important;margin-left:0 !important;margin-top:0 !important;width:auto !important;min-width:0 !important;max-width:none !important;}
+	ul.sm-clean1>li{float:none;}
+	ul.sm-clean1>li>a,ul.sm-clean ul.sm-nowrap>li>a{white-space:normal;}
+	ul.sm-clean1 iframe{display:none;}
+
+	/* Uncomment this rule to disable completely the sub menus for small screen devices */
+	/*.sm-clean1 ul, .sm-clean span.sub-arrow, .sm-clean iframe {
+		display:none !important;
+	}*/
+
+
+/* Menu box
+===================*/
+
+	.sm-clean1 {
+		padding:0;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+	}
+	.sm-clean1 ul {
+		border:0;
+		padding:0;
+		/* darken the background of the sub menus */
+		background:rgba(130,130,130,0.1);
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+		-moz-box-shadow:none;
+		-webkit-box-shadow:none;
+		box-shadow:none;
+	}
+	/* no carets */
+	.sm-clean1 > li > ul:before, .sm-clean > li > ul:after {
+		display:none;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-clean1 a {
+		padding:13px 5px 13px 28px !important;
+		color:#555 !important;
+		background:transparent !important;
+	}
+	.sm-clean1 a.current {
+		color:#D23600 !important;
+	}
+	/* add some text indentation for the 2+ level sub menu items */
+	.sm-clean1 ul a {
+		border-left:8px solid transparent;
+	}
+	.sm-clean1 ul ul a {
+		border-left:16px solid transparent;
+	}
+	.sm-clean1 ul ul ul a {
+		border-left:24px solid transparent;
+	}
+	.sm-clean1 ul ul ul ul a {
+		border-left:32px solid transparent;
+	}
+	.sm-clean1 ul ul ul ul ul a {
+		border-left:40px solid transparent;
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-clean1 a span.sub-arrow,
+	.sm-clean1 ul a span.sub-arrow {
+		top:50%;
+		margin-top:-9px;
+		right:auto;
+		left:6px;
+		margin-left:0;
+		width:17px;
+		height:17px;
+		font:normal 16px/16px monospace !important;
+		text-align:center;
+		border:0;
+		text-shadow:none;
+		background:rgba(255,255,255,0.6);
+		-moz-border-radius:50px;
+		-webkit-border-radius:50px;
+		border-radius:50px;
+	}
+	/* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
+	.sm-clean a.highlighted span.sub-arrow {
+		display:none !important;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-clean1 li {
+		border-top:1px solid rgba(0,0,0,0.05);
+	}
+	.sm-clean1 > li:first-child {
+		border-top:0;
+	}
+
+}
